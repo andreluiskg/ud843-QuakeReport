@@ -87,7 +87,7 @@ public final class QueryUtils {
         return earthquakes;
     }
 
-    public static ArrayList<Earthquake> fetchEarthquakesData(String requestUrl) {
+    public static ArrayList<Earthquake> fetchEarthquakeData(String requestUrl) {
 
         String jsonResponse = null;
 
