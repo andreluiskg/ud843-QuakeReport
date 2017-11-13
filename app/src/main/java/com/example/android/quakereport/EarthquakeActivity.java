@@ -99,10 +99,6 @@ public class EarthquakeActivity extends AppCompatActivity
             textView.setText("No internet connection.");
         }
 
-        /* O codigo abaixo será removido em conjunto com a classe EarthquakeAsyncTask *//*
-        EarthquakeAsyncTask earthquakeAsyncTask = new EarthquakeAsyncTask();
-        earthquakeAsyncTask.execute(USGS_REQUEST_URL);
-        //ArrayList earthquakes = QueryUtils.extractEarthquakes();*/
     }
 
     private void updateUI(ArrayList<Earthquake> earthquakes) {
@@ -202,7 +198,6 @@ public class EarthquakeActivity extends AppCompatActivity
         if (earthquakes != null && !earthquakes.isEmpty()) {
             mAdapter.addAll(earthquakes);
         }
-        //updateUI((ArrayList<Earthquake>) data);
     }
 
     /**
@@ -217,43 +212,4 @@ public class EarthquakeActivity extends AppCompatActivity
         mAdapter.clear();
     }
 
-    /* A classe abaixo foi substituida pelo Loader *//*
-    private class EarthquakeAsyncTask extends AsyncTask<String, Void, List<Earthquake>> {
-
-        *//**
-     * Override this method to perform a computation on a background thread. The
-     * specified parameters are the parameters passed to {@link #execute}
-     * by the caller of this task.
-     * <p>
-     * This method can call {@link #publishProgress} to publish updates
-     * on the UI thread.
-     *
-     * @param //strings The parameters of the task.
-     * @return A result, defined by the subclass of this task.
-     * @see #onPreExecute()
-     * @see #onPostExecute
-     * @see #publishProgress
-     *//*
-        @Override
-        protected List<Earthquake> doInBackground(String... urls) {
-            ArrayList<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(urls[0]);
-            return earthquakes;
-        }
-
-        *//**
-     * <p>Runs on the UI thread after {@link #doInBackground}. The
-     * specified result is the value returned by {@link #doInBackground}.</p>
-     * <p>
-     * <p>This method won't be invoked if the task was cancelled.</p>
-     *
-     * @param earthquakes The result of the operation computed by {@link #doInBackground}.
-     * @see #onPreExecute
-     * @see #doInBackground
-     * @see #onCancelled(Object)
-     *//*
-        @Override
-        protected void onPostExecute(List<Earthquake> earthquakes) {
-            updateUI((ArrayList<Earthquake>) earthquakes);
-        }
-    }*/
 }
