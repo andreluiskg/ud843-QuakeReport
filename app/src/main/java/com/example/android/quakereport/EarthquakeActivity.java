@@ -22,7 +22,6 @@ import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -81,10 +80,10 @@ public class EarthquakeActivity extends AppCompatActivity
         // porque esta activity implementa a interface LoaderCallbacks).
         loaderManager.initLoader(EARTHQUAKE_LOADER_ID, null, this);
 
-        /* O codigo abaixo será removido em conjunto com a classe EarthquakeAsyncTask */
+        /* O codigo abaixo será removido em conjunto com a classe EarthquakeAsyncTask *//*
         EarthquakeAsyncTask earthquakeAsyncTask = new EarthquakeAsyncTask();
         earthquakeAsyncTask.execute(USGS_REQUEST_URL);
-        //ArrayList earthquakes = QueryUtils.extractEarthquakes();
+        //ArrayList earthquakes = QueryUtils.extractEarthquakes();*/
     }
 
     private void updateUI(ArrayList<Earthquake> earthquakes) {
@@ -192,10 +191,10 @@ public class EarthquakeActivity extends AppCompatActivity
         mAdapter.clear();
     }
 
-    /* A classe abaixo será removida */
+    /* A classe abaixo foi substituida pelo Loader *//*
     private class EarthquakeAsyncTask extends AsyncTask<String, Void, List<Earthquake>> {
 
-        /**
+        *//**
          * Override this method to perform a computation on a background thread. The
          * specified parameters are the parameters passed to {@link #execute}
          * by the caller of this task.
@@ -208,14 +207,14 @@ public class EarthquakeActivity extends AppCompatActivity
          * @see #onPreExecute()
          * @see #onPostExecute
          * @see #publishProgress
-         */
+         *//*
         @Override
         protected List<Earthquake> doInBackground(String... urls) {
             ArrayList<Earthquake> earthquakes = QueryUtils.fetchEarthquakeData(urls[0]);
             return earthquakes;
         }
 
-        /**
+        *//**
          * <p>Runs on the UI thread after {@link #doInBackground}. The
          * specified result is the value returned by {@link #doInBackground}.</p>
          * <p>
@@ -225,10 +224,10 @@ public class EarthquakeActivity extends AppCompatActivity
          * @see #onPreExecute
          * @see #doInBackground
          * @see #onCancelled(Object)
-         */
+         *//*
         @Override
         protected void onPostExecute(List<Earthquake> earthquakes) {
             updateUI((ArrayList<Earthquake>) earthquakes);
         }
-    }
+    }*/
 }
