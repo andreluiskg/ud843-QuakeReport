@@ -76,12 +76,6 @@ public final class QueryUtils {
         String jsonResponse = null;
 
         try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        try {
             URL url = new URL(requestUrl);
             jsonResponse = makeHttpRequest(url);
         } catch (IOException e) {
